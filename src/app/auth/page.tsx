@@ -1,10 +1,11 @@
 
 "use client"
 import axios from 'axios';
-
+export const dynamic = "force-dynamic";
 import { useState } from "react";
 import { useCallback } from "react";
 import { signIn } from "next-auth/react";
+import { useRouter } from 'next/navigation';
 
 import Input from "../components/input/page";
 import { FcGoogle } from 'react-icons/fc';
@@ -13,9 +14,10 @@ import { FaGithub } from 'react-icons/fa';
 
 const Auth = () => {
     
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
-    const [password , setPassword]  = useState('');
+    const router = useRouter();
+    const [email, setEmail] = useState(' ');
+    const [name, setName] = useState(' ');
+    const [password , setPassword]  = useState(' ');
     const [varient, setVarient] = useState('login');
 
     const toggleVarient = useCallback(() => {
@@ -27,15 +29,17 @@ const Auth = () => {
             await signIn('credentials', {
                 email,
                 password,
-                callbackUrl: '/profiles'
+                redirect:false,
+                callbackUrl: '/'
                 
             });
+            router.push('/Profiles');
             
         }
         catch (error) {
             console.log(error);
         }
-    }, [email, password]);
+    }, [email, password,router]);
     
     const register = useCallback(async () => {
         try {
@@ -44,12 +48,12 @@ const Auth = () => {
                 name,
                 password
             }); 
-           
+            login();
         }
         catch (error) {
             console.log(error);
         }
-    }, [email, name, password]);
+    }, [email, name, password,login]);
     
 
     return(
@@ -63,14 +67,14 @@ const Auth = () => {
                         <h2 className="text-white text-4xl font-semibold mb-8">{varient==='login'? "Sign in":"Register" }</h2>
                         <div className="flex flex-col gap-4">
                            { varient==='register' && (<Input
-                                id="name"
+                                
                                 label="Username"
                                 onChange={(ev: any) => setName(ev.target.value) }
                                 value={name}
                                 type='text'                            
                             />)}
                             <Input
-                                id="email"
+                               
                                 label="email"
                                 onChange={(ev: any) => setEmail(ev.target.value)
                                 }
@@ -81,7 +85,7 @@ const Auth = () => {
                             
                             />
                              <Input
-                                id="password"
+                                
                                 label="password"
                                 onChange={(ev:any) => setPassword(ev.target.value) }
                                 type="password"

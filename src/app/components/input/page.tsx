@@ -1,29 +1,21 @@
+
+export const dynamic = "force-dynamic"
 import React from 'react';
 
 
-interface InputProps{
-    id: string;
-    onChange: any;
-    value: string;
-    label: string;
-    type: string;
-}
+   
 
-const Input: React.FC<InputProps> = ({
-    id,
-    onChange,
-    value,
-    label,
-    type
-}) => {
+
+
+const Input = ({params}:any|undefined) => {
     return (
         <div className="relative">
             <input
                 
-                onChange={onChange}
-                type={type}
-                value={value}
-                id={id}
+                onChange={params.onChange}
+                type={params.type}
+                value={params.value}
+                
                 className="
                 block
                 rounded-md
@@ -38,7 +30,7 @@ const Input: React.FC<InputProps> = ({
                 peer
         "
                 placeholder=" " />
-            <label htmlFor={id} className="
+            <label htmlFor={params.type} className="
             absolute
             text-md
             text-zinc-400
@@ -56,7 +48,7 @@ const Input: React.FC<InputProps> = ({
             peer-focus:-translate-y-4
 
             ">
-            {label}
+            {params.label}
             </label>  
 
         </div>

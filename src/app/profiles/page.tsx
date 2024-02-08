@@ -40,7 +40,7 @@ const UserCard: React.FC<UserCardProps> = ({name})=>{
 }
 
 
-export default function profiles() {
+export default function Profiles() {
     const router = useRouter();
     const { data: currentUser } = useCurrentUser();
     const selectProfile = useCallback(() => {
