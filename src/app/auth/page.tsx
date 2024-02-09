@@ -103,7 +103,7 @@ const Auth = () => {
                                 justify-center
                                 cursor-pointer
                                 hover:opacity-80
-                                transistion" onClick={()=>signIn('google',{callbackUrl:'/Profiles'})}>
+                                transistion" onClick={()=>signIn('google',{callbackUrl:'/profiles'})}>
                                     <FcGoogle size={ 30} />
 
                                 </div>
@@ -113,7 +113,7 @@ const Auth = () => {
                                 justify-center
                                 cursor-pointer
                                 hover:opacity-80
-                                transistion" onClick={()=>signIn('github',{callbackUrl:'/Profiles'})}>
+                                transistion" onClick={()=>signIn('github',{callbackUrl:'/profiles'})}>
                                     <FaGithub/>
 
                                 </button>

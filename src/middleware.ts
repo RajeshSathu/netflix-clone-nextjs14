@@ -24,6 +24,6 @@ export default async function middleware(request: NextRequest): Promise<NextResp
 }
 
 export const config = {
-  matcher: ["/", "/profiles", "/auth"],
+  matcher: ["/", "/Profiles", "/auth"],
 };
 export const dynamic = "true";
