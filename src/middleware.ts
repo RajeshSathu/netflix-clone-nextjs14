@@ -1,29 +1,29 @@
-import { useParams } from "next/navigation";
-import useCurrentUser from "../hooks/useCurrentUser";
-import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
-import { cookies } from "next/headers";
-export const dynamic = "force-dynamic";
+import { NextResponse } from "next/server";
+import { getAuthCookie } from "../lib/authorize"; // Assumes an interface defined for the auth cookie
 
- 
-async function getCookieData() {
-  return new Promise((resolve) =>
-    setTimeout(() => {
-      // cookies will be called outside of the async context, causing a build-time error
-      resolve(cookies().get("next-auth.session-token"));
-    }, 1000)
-  );
+
+
+
+
+export default async function middleware(request: NextRequest): Promise<NextResponse> {
+  const path = request.nextUrl.pathname;
+  const authCookie = await getAuthCookie(request); // Type the returned value
+
+  if (!authCookie && path!=='/auth') {
+    
+      return NextResponse.redirect(new URL("/auth", request.url));
+  
+  }
+   if (!authCookie && path !== "/auth") {
+     return NextResponse.redirect(new URL("/auth", request.url));
+   }
+   
+
+  return NextResponse.next();
 }
 
-export async function middleware(request: NextRequest) {
-    const cookieData = await getCookieData();
-    const path = request.nextUrl.pathname;
-    if (!cookieData && path !== '/auth') {
-        return NextResponse.redirect(new URL('/auth', request.url))
-    }
-else if(cookieData && path!=='/auth')        return NextResponse.next();
-    }
-
 export const config = {
-  matcher: ["/", "/profiles",'/auth'],
+  matcher: ["/", "/profiles", "/auth"],
 };
+export const dynamic = "true";

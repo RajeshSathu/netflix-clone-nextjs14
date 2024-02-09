@@ -11,13 +11,13 @@ import GitHubProvider from "next-auth/providers/github";
 export const authOptions: NextAuthOptions = {
     providers: [
         GoogleProvider({
-        clientId: process.env.GOOGLE_CLIENT_ID||'',
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET||''
+            clientId: process.env.GOOGLE_CLIENT_ID || '',
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET || ''
         }),
-         GitHubProvider({
-            clientId: process.env.GITHUB_ID||'',
-            clientSecret: process.env.GITHUB_SECRET||''
-            }),
+        GitHubProvider({
+            clientId: process.env.GITHUB_ID || '',
+            clientSecret: process.env.GITHUB_SECRET || ''
+        }),
         CredentialsProvider({
             id: 'credentials',
             name: 'credentials',
@@ -33,7 +33,7 @@ export const authOptions: NextAuthOptions = {
             },
             async authorize(credentials) {
                 if (typeof credentials?.email !== "string") throw new Error('Enter correct email ')
-                const {email,password } =credentials;
+                const { email, password } = credentials;
                 
                 if (!email || !password) {
                     console.log('Email and pasword required')
@@ -42,7 +42,7 @@ export const authOptions: NextAuthOptions = {
                 const user = await prismadb.user.findUnique({
                     where: {
                         
-                         email,
+                        email,
                     }
                 });
                 if (!user || !user.hashedPassword) {
@@ -82,4 +82,4 @@ export const authOptions: NextAuthOptions = {
     secret: process.env.NEXTAUTH_SECRET
    
     
-} ;export const dynamic = "force-dynamic";
+}; 

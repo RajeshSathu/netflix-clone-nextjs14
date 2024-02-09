@@ -12,9 +12,9 @@ const Input = ({params}:any|undefined) => {
         <div className="relative">
             <input
                 
-                onChange={params.onChange}
-                type={params.type}
-                value={params.value}
+                onChange={params?.onChange}
+                type={params?.type}
+                value={params?.value}
                 
                 className="
                 block
@@ -30,7 +30,7 @@ const Input = ({params}:any|undefined) => {
                 peer
         "
                 placeholder=" " />
-            <label htmlFor={params.type} className="
+            <label htmlFor={params?.type} className="
             absolute
             text-md
             text-zinc-400
@@ -48,7 +48,7 @@ const Input = ({params}:any|undefined) => {
             peer-focus:-translate-y-4
 
             ">
-            {params.label}
+            {params?.label}
             </label>  
 
         </div>

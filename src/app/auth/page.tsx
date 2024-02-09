@@ -1,7 +1,7 @@
 
 "use client"
 import axios from 'axios';
-export const dynamic = "force-dynamic";
+
 import { useState } from "react";
 import { useCallback } from "react";
 import { signIn } from "next-auth/react";
@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation';
 import Input from "../components/input/page";
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
+
 
 
 const Auth = () => {
@@ -102,7 +103,7 @@ const Auth = () => {
                                 justify-center
                                 cursor-pointer
                                 hover:opacity-80
-                                transistion" onClick={()=>signIn('google',{callbackUrl:'/profiles'})}>
+                                transistion" onClick={()=>signIn('google',{callbackUrl:'/Profiles'})}>
                                     <FcGoogle size={ 30} />
 
                                 </div>
@@ -112,7 +113,7 @@ const Auth = () => {
                                 justify-center
                                 cursor-pointer
                                 hover:opacity-80
-                                transistion" onClick={()=>signIn('github',{callbackUrl:'/profiles'})}>
+                                transistion" onClick={()=>signIn('github',{callbackUrl:'/Profiles'})}>
                                     <FaGithub/>
 
                                 </button>
@@ -129,4 +130,6 @@ const Auth = () => {
         </div>
     )
 }
+
 export default Auth;
+ 
