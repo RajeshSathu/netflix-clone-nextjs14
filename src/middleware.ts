@@ -15,15 +15,13 @@ export default async function middleware(request: NextRequest): Promise<NextResp
       return NextResponse.redirect(new URL("/auth", request.url));
   
   }
-   if (!authCookie && path !== "/auth") {
-     return NextResponse.redirect(new URL("/auth", request.url));
-   }
+
    
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/", "/Profiles", "/auth"],
+  matcher: ["/", "/profiles", "/auth"],
 };
 export const dynamic = "true";

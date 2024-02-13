@@ -34,7 +34,7 @@ const Auth = () => {
                 callbackUrl: '/'
                 
             });
-            router.push('/Profiles');
+            router.push('/profiles');
             
         }
         catch (error) {
@@ -68,26 +68,27 @@ const Auth = () => {
                         <h2 className="text-white text-4xl font-semibold mb-8">{varient==='login'? "Sign in":"Register" }</h2>
                         <div className="flex flex-col gap-4">
                            { varient==='register' && (<Input
-                                
+                                id="name"
+                                type="text"
                                 label="Username"
                                 onChange={(ev: any) => setName(ev.target.value) }
                                 value={name}
-                                type='text'                            
+                                                            
                             />)}
                             <Input
-                               
+                                id="email"
+                                type="email"
                                 label="email"
                                 onChange={(ev: any) => setEmail(ev.target.value)
                                 }
                                 
-                                type='email'
                                 value={email}
                                 
                             
                             />
                              <Input
-                                
-                                label="password"
+                                id="password"
+                                label="Password"
                                 onChange={(ev:any) => setPassword(ev.target.value) }
                                 type="password"
                                 value={password}

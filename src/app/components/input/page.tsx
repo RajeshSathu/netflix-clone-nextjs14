@@ -2,19 +2,19 @@
 export const dynamic = "force-dynamic"
 import React from 'react';
 
-
+import  InputProps  from "../../../../lib/InputProps";
    
 
 
 
-const Input = ({params}:any|undefined) => {
+const Input = (props:any) => {
     return (
         <div className="relative">
             <input
-                
-                onChange={params?.onChange}
-                type={params?.type}
-                value={params?.value}
+                id={props.id}                
+                onChange={props.onChange}
+                type={props.type}
+                value={props.value}
                 
                 className="
                 block
@@ -29,8 +29,8 @@ const Input = ({params}:any|undefined) => {
                 focus:ring-0
                 peer
         "
-                placeholder=" " />
-            <label htmlFor={params?.type} className="
+                placeholder="" />
+            <label htmlFor={props.id} className="
             absolute
             text-md
             text-zinc-400
@@ -48,7 +48,7 @@ const Input = ({params}:any|undefined) => {
             peer-focus:-translate-y-4
 
             ">
-            {params?.label}
+            {props.label}
             </label>  
 
         </div>
