@@ -4,7 +4,14 @@ module.exports = {
     return [
       {
         source: "/auth",
-        destination: "/",
+        destination: "/profiles",
+        permanent: true,
+      },
+     
+      {
+        source: '/profiles',
+        destination: '/',
+        permanent: true,
       },
     ];
   },
