@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 import useMovie from "../../../../hooks/useMovie";
 
+export const dynamic = "force-dynamic";
 
 const Watch = () => {
     const router = useRouter();

@@ -16,9 +16,9 @@ import { FaGithub } from 'react-icons/fa';
 const Auth = () => {
     
     const router = useRouter();
-    const [email, setEmail] = useState(' ');
-    const [name, setName] = useState(' ');
-    const [password , setPassword]  = useState(' ');
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [password , setPassword]  = useState('');
     const [varient, setVarient] = useState('login');
 
     const toggleVarient = useCallback(() => {

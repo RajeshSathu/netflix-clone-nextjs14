@@ -13,6 +13,7 @@ const serverAuth = async (req: NextRequest) => {
     
     const session = await getSession({ req: requestForNextAuth });
     
+    
     if (!session?.user?.email) {
         throw new Error('Not signed in');
     }

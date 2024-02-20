@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import serverAuth from "../../../../../lib/serverAuth";
 
+export const dynamic = "force-dynamic";
 
 export async function GET(req: NextRequest, { params }: { params: { movieId: string } }) {
      const movieId=params.movieId;

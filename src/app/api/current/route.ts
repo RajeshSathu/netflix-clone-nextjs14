@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import serverAuth from "../../../../lib/serverAuth";
 import { NextRequest, NextResponse } from 'next/server';
+export const dynamic = "force-dynamic";
 
 export async function GET(req: NextRequest, res: NextResponse) {
   
@@ -14,3 +15,4 @@ export async function GET(req: NextRequest, res: NextResponse) {
         
        
 }
+

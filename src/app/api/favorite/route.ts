@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import serverAuth from "../../../../lib/serverAuth";
 import { without } from "lodash";
 
+export const dynamic = "force-dynamic";
 interface movieIdProps{
     movieId:string
 }
