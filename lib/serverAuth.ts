@@ -4,6 +4,8 @@ import { getSession } from 'next-auth/react';
 
 import prismadb from "./prismadb";
 
+export const dynamic = "force-dynamic";
+
 const serverAuth = async (req: NextRequest) => {
     const requestForNextAuth = {
    headers: {
