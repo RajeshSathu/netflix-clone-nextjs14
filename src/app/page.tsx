@@ -14,7 +14,7 @@ import useFavorites from '../../hooks/useFavorites';
 import InfoModal from './components/InfoModal';
 import useInfoModalStore from '../../hooks/useInfoModalStore';
 
-
+export const dynamic = "force-dynamic";
 
 export default function Home() {
   

@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 import Input from "../components/input/page";
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
-import { permanentRedirect } from 'next/navigation'
+
 
 
 const Auth = () => {
@@ -30,11 +30,11 @@ const Auth = () => {
             await signIn('credentials', {
                 email,
                 password,
-                
-                
+                redirect:false,
+                callbackUrl: '/'
                 
             });
-            permanentRedirect("/profiles");
+            router.push('/profiles');
             
         }
         catch (error) {

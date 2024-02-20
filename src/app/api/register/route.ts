@@ -4,6 +4,7 @@ import  { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import prismadb from '../../../../lib/prismadb';
 
+export const dynamic = "force-dynamic";
 export async function POST(  req:Request) {
     try {
         const { email, name, password }: any = await req.json();
