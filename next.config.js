@@ -1,19 +1,8 @@
 // next.config.js
-module.exports = {
-  async rewrites() {
-    return [
-      {
-        source: "/auth",
-        destination: "/profiles",
-        permanent: true,
-      },
-     
-      {
-        source: '/profiles',
-        destination: '/',
-        permanent: true,
-      },
-    ];
-  },
-};
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+}
+
+module.exports = nextConfig;
 
